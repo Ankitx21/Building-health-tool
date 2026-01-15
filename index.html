@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Building Health Tool</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- HEADER -->
+    <header class="header">
+      <h1>Building Health Tool</h1>
+      <p>Evaluate the energy and IEQ performance of your commercial office building.</p>
+    </header>
+
+    <!-- MAIN GRID -->
+    <main class="main-grid">
+
+      <!-- LEFT : INPUTS -->
+      <section class="card">
+
+        <!-- GENERAL INFO -->
+        <h2>General Building Info</h2>
+
+        <label>Building Type</label>
+        <select id="buildingType">
+          <option>Office</option>
+        </select>
+
+        <!--state and cities of India-->
+
+        <div class="inline">
+          <div class="field">
+            <label for="state">State</label>
+            <select id="state">
+              <option value="">Select State</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="city">City</label>
+            <select id="city" disabled>
+              <option value="">Select City</option>
+            </select>
+          </div>
+        </div>
+
+
+
+        <label>Built Up Area (m²)</label>
+        <input type="number" id="area" placeholder="e.g. 5000">
+
+        <!-- ENERGY -->
+        <h2>Energy Performance</h2>
+
+        <label>Electricity Consumption</label>
+        <div class="inline">
+          <input type="number" id="energy" placeholder="e.g. 250000">
+          <select id="energyPeriod">
+            <option value="annual">Annual (kWh)</option>
+            <option value="monthly">Monthly (kWh)</option>
+          </select>
+        </div>
+
+        <label>Installed AC Capacity (TR)</label>
+        <input type="number" id="acCapacity" placeholder="e.g. 300">
+
+        <label>Contract Demand (kVA)</label>
+        <input type="number" id="contractDemand" placeholder="e.g. 450">
+
+        <label>DG Set Size (kVA)</label>
+        <input type="number" id="dgSize" placeholder="e.g. 500">
+
+        <label id="renewableLabel">
+            Renewable Energy Installed <span class="required">*</span>
+        </label>
+
+
+        <div class="inline">
+          <input
+            type="number"
+            id="renewableValue"
+            placeholder="e.g. 100"
+          >
+
+          <select id="renewableMode">
+            <option value="">Select</option>
+            <option value="kwp">Installed Capacity (kWp)</option>
+            <option value="pct">% of Electricity Demand</option>
+          </select>
+
+          <small id="renewableError" class="error-text hidden">
+            Please select an option and enter a value
+          </small>
+
+        </div>
+
+
+
+        <label>Air-conditioned Area (%)</label>
+        <input type="number" id="acArea" placeholder="e.g. 80">
+
+        <!-- WATER -->
+        <h2>Water </h2>
+
+        <label>Water Use (LPCD)</label>
+        <input type="number" id="lpcd" placeholder="e.g. 40">
+
+        <label>Water Consumption</label>
+        <div class="inline">
+          <input type="number" id="water" placeholder="e.g. 120000">
+          <select>
+            <option>Annual (litres)</option>
+          </select>
+        </div>
+
+        <label id="recycledLabel">
+          Recycled / Treated Water <span class="required">*</span>
+        </label>
+
+        <div class="inline">
+          <input
+            type="number"
+            id="recycledValue"
+            placeholder="e.g. 25"
+          >
+
+          <select id="recycledMode">
+            <option value="">Select</option>
+            <option value="pct">% of total water</option>
+            <option value="ltr">Litres</option>
+          </select>
+
+          <small id="recycledError" class="error-text hidden">
+            Please select an option and enter a value
+          </small>
+        </div>
+
+
+        <label>Rainwater Harvesting</label>
+        <select id="rwh">
+          <option>No</option>
+          <option>Yes</option>
+        </select>
+
+        <button id="assessBtn">Assess My Building</button>
+      </section>
+
+      <!-- RIGHT : RESULTS -->
+<section class="card hidden" id="results">
+
+  <h2>Your Building's Performance</h2>
+
+      <!-- ================= SUMMARY ================= -->
+      <div class="result-block">
+        <h3>Summary</h3>
+
+        <p>
+          <strong>City:</strong>
+          <span id="outCity">—</span>
+        </p>
+
+        <p>
+          <strong>Climate Zone:</strong>
+          <span id="outClimate">—</span>
+        </p>
+
+        <div class="summary-metric">
+          <strong>Energy Performance Index (EPI):</strong>
+          <div id="outEpiValue" class="metric-value">—</div>
+        </div>
+
+        <div class="summary-metric">
+          <strong>Assure EPI Comparison (Target ≤ 75 kWh/m²/yr):</strong>
+          <div id="outAssureEpi" class="metric-value">—</div>
+        </div>
+
+        <p>
+          <strong>BEE Star Rating:</strong>
+          <span id="outStarRating">—</span>
+        </p>
+
+        <p>
+          <strong>Net Energy Status:</strong>
+          <span id="outNetEnergy">—</span>
+        </p>
+      </div>
+
+      <!-- ================= HVAC & ELECTRICAL ================= -->
+      <div class="result-block">
+        <h3>HVAC & Electrical</h3>
+
+        <p>
+          <strong>HVAC Sizing:</strong>
+          <span id="outHvac">—</span>
+        </p>
+
+        <p>
+          <strong>Contract / DG Sizing:</strong>
+          <span id="outDemand">—</span>
+        </p>
+      </div>
+
+      <!-- ================= WATER ================= -->
+      <div class="result-block">
+        <h3>Water</h3>
+
+        <p>
+          <strong>Water Efficiency:</strong>
+          <span id="outWater">—</span>
+        </p>
+      </div>
+
+    </section>
+
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

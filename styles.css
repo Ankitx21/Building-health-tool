@@ -1,0 +1,261 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #1f2f5c;
+  color: #e5e7eb;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  margin-bottom: 6px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.card {
+  background: #2b3b73;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+h2 {
+  margin-top: 0;
+  border-bottom: 1px solid #3f4f8c;
+  padding-bottom: 6px;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 4px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+
+.inline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  background: #7fb239;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #6aa32f;
+}
+
+.result-block {
+  background: #223162;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.good {
+  color: #6ee7b7;
+}
+
+.bad {
+  color: #f87171;
+}
+
+.hidden {
+  display: none;
+}
+
+/* output secction css */
+
+.summary-metric {
+  margin-top: 10px;
+}
+
+.metric-value {
+  margin-top: 4px;
+  font-size: 15px;
+}
+
+.metric-good {
+  color: #6ee7b7;
+}
+
+.metric-bad {
+  color: #f87171;
+}
+
+/* KPI Row Layout */
+.kpi-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+}
+
+/* Left side */
+.kpi-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.kpi-icon {
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+.kpi-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.kpi-ref {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+/* Right side value */
+.kpi-right {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: right;
+  max-width: 45%;
+}
+
+/* Status colors */
+.rating-excellent {
+  color: #22c55e; /* green */
+}
+
+.rating-fair {
+  color: #facc15; /* amber */
+}
+
+.rating-poor {
+  color: #ef4444; /* red */
+}
+
+
+/* net-energy-status
+
+/* ===== NET ENERGY BADGES ===== */
+
+/* ===== Net Energy Status (text-only) ===== */
+
+.text-positive {
+  color: #22c55e; /* green */
+  font-weight: 600;
+}
+
+.text-neutral {
+  color: #b45309; /* amber */
+  font-weight: 600;
+}
+
+.text-negative {
+  color: #ef4444; /* red */
+  font-weight: 600;
+}
+
+
+.badge-positive {
+  color: #22c55e;
+}
+
+.badge-neutral {
+  color: #b45309;
+}
+
+.badge-negative {
+  color: #ef4444;
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: inline-block;
+}
+
+
+/* rneewebale enrgy installed kwp or percentage */
+
+.required {
+  color: #e53935;
+  margin-left: 4px;
+}
+
+.error-text {
+  color: #e53935;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.hidden {
+  display: none;
+}
+
+.input-error {
+  border: 1.5px solid #e53935 !important;
+}
+
+.label-error {
+  color: #e53935;
+}
+
+
+
+
+
+/* RESPONSIVE */
+@media (min-width: 900px) {
+  .main-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
